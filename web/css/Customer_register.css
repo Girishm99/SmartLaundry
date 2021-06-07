@@ -1,0 +1,158 @@
+@font-face {
+ font-family: "Open Sans", sans-serif;
+  src: url("../fonts"); }
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  src: url("../fonts"); }
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  src: url("../fonts"); }
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+     
+    background-size: cover;
+    font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  margin: 0; }
+
+input, textarea, select, button {
+  font-family: "Open Sans", sans-serif;;
+  color: #333;
+  font-size: 13px; }
+
+p, h1, h2, h3, h4, h5, h6, ul {
+  margin: 0; }
+
+img {
+  max-width: 100%; }
+
+ul {
+  padding-left: 0;
+  margin-bottom: 0; }
+
+a:hover {
+  text-decoration: none; }
+
+:focus {
+  outline: none; }
+
+.wrapper {
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center; }
+
+.inner {
+  min-width: 850px;
+  margin: auto;
+  padding-top: 68px;
+  padding-bottom: 48px;
+  }
+  .inner h3 {
+    
+    font-size: 34px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    
+    color:;
+    margin: 10px 0 15px;
+    color: #413e66;
+     }
+
+form {
+    content: center;
+  width: 70%;
+  padding-left: 250px; }
+
+.form-group {
+  display: flex; }
+  .form-group .form-wrapper {
+    width: 50%; }
+    .form-group .form-wrapper:first-child {
+      margin-right: 20px; }
+
+.form-wrapper {
+  margin-bottom: 17px; }
+  .form-wrapper label {
+    margin-bottom: 9px;
+     }
+  
+  
+     
+.inner.form-group input::-webkit-input-placeholder
+ {
+  color: #a2a0bd;
+  text-align: left;
+    margin-bottom: 40px;
+ }
+.form-control {
+  border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 20px;
+  font-family: "Open Sans", sans-serif;
+  background: none; }
+  .form-control:focus {
+    border: 1px solid #1bb1dc ; }
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-left: 20px; }
+  select option[value=""][disabled] {
+    display: none; }
+
+button {
+  border: none;
+  width: 152px;
+  height: 40px;
+  margin: auto;
+  
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #1bb1dc;
+  font-size: 18px;
+ 
+         
+    font-weight: bold;
+  color: #fff;
+  
+  font-family: "Open Sans", sans-serif;
+  border-radius: 20px;
+  
+  
+ 
+  position: relative;
+   }
+  
+  button:hover {
+      background: #0a98c0;
+    opacity: 0.8;
+     }
+
+
+@media (max-width: 991px) {
+  .inner {
+    min-width: 768px; } }
+@media (max-width: 767px) {
+  .inner {
+    min-width: auto;
+    background: none;
+    padding-top: 0;
+    padding-bottom: 0; }
+
+  form {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px; } }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,179 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <title>Smart Laundry || Invoice-Print</title>
+    <!-- GLOBAL MAINLY STYLES-->
+    <link href="./assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="./assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
+    <!-- PLUGINS STYLES-->
+    <!-- THEME STYLES-->
+    <link href="assets/css/main.min.css" rel="stylesheet" />
+    <!-- PAGE LEVEL STYLES-->
+</head>
+
+<body class="fixed-navbar">
+   
+        
+     
+    <div >
+            <!-- START PAGE CONTENT-->
+       
+            <div class="page-content fade-in-up">
+                <div class="ibox invoice">
+                    <div class="invoice-header">
+                        <div class="row">
+                            <div class="col-6">
+                                
+                                <div class="invoice-logo">
+                                    <img src="../images/laundry!_1.png" width="250px" height="100px" alt=""/>
+                                    <!--<img src="./assets/img/logos/github-logo.png" height="65px" />-->
+                                </div>
+                                <div>
+                                    <div class="m-b-6 font-bold">Invoice from</div><br>
+                                    <div><h4>SMART LAUNDRY</h4></div>
+                                    <ul class="list-unstyled m-t-10">
+                                        <li class="m-b-5">
+                                            <span class="font-strong">ADDRESS: </span>GHATKOPAR-EAST</li>
+                                        <li class="m-b-5">
+                                            <span class="font-strong">EMAIL ID: </span> admin@gmail.com.com</li>
+                                        <li>
+                                            <span class="font-strong">Contact No.: </span>+910000000000</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-6 text-right" style="padding-top:200px;padding-right:100px;">
+                                <div class="clf" style="margin-bottom:30px;">
+                                    <dl class="row pull-right" style="width:250px;"><dt class="col-sm-6">Invoice Date</dt>
+                                        <dd class="col-sm-6">10 April 2017</dd><dt class="col-sm-6">Order Date</dt>
+                                        <dd class="col-sm-6">30 April 2017</dd><dt class="col-sm-6">Order ID</dt>
+                                        <dd class="col-sm-6">1450012</dd>
+                                    </dl>
+                                </div>
+                                <div>
+                                    <div class="m-b-5 font-bold">Invoice To</div>
+                                    <div><%=session.getAttribute("cust_name")%></div>
+                                    <ul class="list-unstyled m-t-10">
+                                        <li class="m-b-5"><%=session.getAttribute("cust_location")%>,</li>
+                                         <li class="m-b-5"><%=session.getAttribute("cust_bldg_soc")%>,</li>
+                                        <li class="m-b-5"><%=session.getAttribute("room_flat_no")%>,</li>
+                                        <li class="m-b-5"><%=session.getAttribute("cust_email")%>,</li>
+                                        <li><%=session.getAttribute("cust_contact")%>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%
+                    DAL d = new DAL();
+
+                    String sql="select order_id , cloth_qty , cc_id , cloth_name , total_amount , order_status , order_date , payment_mode,"
+
+                    + "DATE_FORMAT( pick_up_date, '%d-%m-%Y') as pick_up_date,  "
+                    + " TIME_FORMAT(pick_up_time, '%h:%i %p') as pick_up_time,"
+                    + " DATE_FORMAT( delivery_date, '%d-%m-%Y') as delivery_date,"
+                    + " TIME_FORMAT(delivery_time, '%h:%i %p') as delivery_time "
+                    + "FROM orders "
+                    + "where cust_id= " + session.getAttribute("cust_id");
+                    ResultSet rs= d.executeQuery(sql);
+                    while(rs.next())
+                           {
+                                %>
+                    <table class="table  table-bordered table-invoice">
+                        <thead>
+                            <tr>
+                                <th>Order Description</th>
+                                <th>Cloth Quantity</th>
+                                <th>Laundry Price</th>
+                                <th>Iron Rate</th>
+                                
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>
+                                    
+                                    <small>
+                                        
+                                        
+                                        
+                                        <strong> Cloth name:</strong> <%=rs.getString(cloth_name)%>, 
+                                        <strong>Cloth Quantity: </strong><%=rs.getString("cloth_qty")%><br>
+                                        <strong>Cloth Quantity: </strong><%=rs.getString("cloth_qty")%><br>
+                                        <strong>Cloth material ID: </strong><%=rs.getString("cc_id")%><br>
+                                        <strong>Pick Up Time: </strong><%=rs.getString("pick_up_time")%><br>
+                                        <strong>Delivery Time: </strong><%=rs.getString("delivery_time")%><br>
+                                        <strong>Pick Up Date: </strong><%=rs.getString("pick_up_date")%><br>
+                                        <strong>Delivery Date: </strong><%=rs.getString("pick_up_date")%><br>
+                                        </small></td>
+                                <td><%=rs.geString("cloth_qty")%></td>
+                                <td><%=rs.geString("laundry_price")%></td>
+                                <td><%=rs.geString("iron_rate")%></td>
+                                
+                                <td><%=rs.geString("total_amount")%></td>
+                            </tr>
+                            
+                            
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th width="15%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-right table-invoice">
+                                <td class="font-bold font-18">SUBTOTAL</td>
+                                <td class="font-bold font-18"><%=rs.getString("total_amount")</td>
+                            </tr>
+                           
+                            <tr class="text-right table-invoice">
+                                <td class="font-bold font-18">TOTAL:</td>
+                                <td class="font-bold font-18"><%=rs.getString("total_amount")</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                    <%
+                        }
+                           %>
+                    
+                </div>
+               
+               
+            </div>
+            <!-- END PAGE CONTENT-->
+           
+        </div>
+    
+    <!-- BEGIN THEME CONFIG PANEL-->
+    
+    <!-- END THEME CONFIG PANEL-->
+    <!-- BEGIN PAGA BACKDROPS-->
+    
+    <!-- END PAGA BACKDROPS-->
+    <!-- CORE PLUGINS-->
+    <script src="./assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="./assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
+    <script src="./assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS-->
+    <!-- CORE SCRIPTS-->
+    <script src="assets/js/app.min.js" type="text/javascript"></script>
+    <script type="text/javascript"> 
+  window.addEventListener("load", window.print());
+</script>
+    <!-- PAGE LEVEL SCRIPTS-->
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+body {
+    
+    background: #f5f8fd url("../images/intro-bg.jpg") center top no-repeat;
+    background-size: cover;
+    font-family: "Open Sans", sans-serif;
+    
+}
+.form-control {
+    font-size: 16px;
+    transition: all 0.4s;
+    box-shadow: none;
+}
+.form-control:focus {
+    border-color: #ffffff;;
+}
+.form-control, .btn {
+    border-radius: 50px;
+    outline: none !important;
+    
+}
+.signin-form {
+    
+    width: 400px;
+    margin: 0 auto;
+   padding-top: 10%;
+}
+.signin-form form {
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background: #fff00;
+    
+    padding:40px;
+}
+
+
+.signin-form a {
+    color: #1bb1dc;
+} 
+.signin-form.a:hover {
+    color: #007bff;
+} 
+
+ 
+.signin-form h2 {
+    text-align: center;
+    font-size: 34px;
+    margin: 10px 0 15px;
+    color: #413e66;
+    font-family: "Open Sans", sans-serif;
+}
+
+.signin-form .form-group input::-webkit-input-placeholder
+ {
+  color: #a2a0bd;
+  text-align: left;
+    margin-bottom: 40px;
+ }
+
+
+.signin-form .btn {        
+    font-size: 18px;
+    line-height: 26px;        
+    font-weight: bold;
+    text-align: center;
+    background: #1bb1dc;
+    
+}
+.signin-form .small:hover {
+    font-size: 13px;
+    
+    
+}
+.signup-btn {
+    font-size: 18px;
+    text-align: center;
+    border-color: #1bb1dc;
+    transition: all 0.4s;
+   background: #1bb1dc;
+  
+}
+.signup-btn:hover {
+   background: #0a98c0;
+    opacity: 0.8;
+}
+
+ 
+
+	
+
+.social-btn .btn i {
+    font-size: 20px;
+}
+#footer{
+    padding-top:145px;
+}
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+  color: #535074;
+  font-size: 15px;
+}
+
+#footer .credits {
+  text-align: center;
+  font-size: 14px;
+  padding-top: 4px;
+  color: #8582a8;
+}
+
+#footer .credits a {
+  color: #1bb1dc;
+}
+
+#footer .credits a:hover {
+  color: #0a98c0;
+}
